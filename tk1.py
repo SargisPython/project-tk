@@ -50,6 +50,8 @@ win.bind("<Key>", press_key)
 
 def add_digit(digit):
     value = calc.get()
+    if value == '':
+        return
     if value[0] == "0" and len(value) == 1:
         value = value[1:]
     calc.delete(0, tk.END)
@@ -58,6 +60,8 @@ def add_digit(digit):
 
 def add_operation(operacion):
     value = calc.get()
+    if value == '':
+        return
     if value[-1] in ("-+/*"):
         value = value[:-1]
     elif "+" in value or "-" in value or "/" in value or "*" in value:
