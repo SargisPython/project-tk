@@ -58,7 +58,7 @@ def add_digit(digit):
 
 def add_operation(operacion):
     value = calc.get()
-    if value[-1] in ("-+/*"):
+    if value[-1] in "-+/*":
         value = value[:-1]
     elif "+" in value or "-" in value or "/" in value or "*" in value:
         calculate()
@@ -71,11 +71,8 @@ def calculate():
     value = calc.get()
     if value[-1] in "-+*/":
         value = value + value[:-1]
-    try:
-        calc.delete(0, tk.END)
-    except NameError:
-        messagebox.showinfo("Attention","write only numbers!!")
-        calc.insert(0,0)
+    calc.delete(0, tk.END)
+    calc.insert(0,eval(value))
 
 
 def clear():
